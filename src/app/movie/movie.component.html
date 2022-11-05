@@ -1,0 +1,177 @@
+<mat-toolbar color="accent">
+  <button mat-button fxHide.lt-md (click)="getPopularMovies('back')">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <span>Peliculas Populares</span>
+  <button mat-button fxHide.lt-md (click)="getPopularMovies('forward')">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="movies.length > 0">
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let movie of movies">
+      <mat-card class="mat-elevation-z4">
+        <a (click)="verDetalle(movie.id)">
+          <img alt="Poster de la pelicula" mat-card-image
+            src="{{ 'https://image.tmdb.org/t/p/w500/' + movie.poster_path }}" />
+        </a>
+        <mat-card-content>
+          <h2>{{ movie.title | slice: 0:20 }}</h2>
+          <p>Popularidad: {{ movie.vote_average / 10 | percent }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="movies.length === 0">
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+        <div style="margin: -16px">
+          <ngx-skeleton-loader [theme]="{
+              width: '326px',
+              height: '490px'
+            }"></ngx-skeleton-loader>
+        </div>
+        <br />
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

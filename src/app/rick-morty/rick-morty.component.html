@@ -1,0 +1,30 @@
+<mat-toolbar color="accent">
+  <button mat-button fxHide.lt-md (click)="getCharacters('prev')">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <span>Personajes de Rick y Morty</span>
+  <button mat-button fxHide.lt-md (click)="getCharacters('next')">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="characters.length > 0">
+    <div
+      fxFlex="20%"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+      *ngFor="let character of characters"
+    >
+      <mat-card class="mat-elevation-z4">
+        <img mat-card-image
+            src="{{ character.image }}"
+            alt="Imagen del avatar"
+          />
+        <mat-card-content>
+          <h2>{{ character.name }}</h2>
+          <p>Estado: {{ character.status }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,103 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title
+        ><img
+          mat-card-sm-image
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Movies_%26_TV_films_2016.svg/500px-Movies_%26_TV_films_2016.svg.png"
+          alt="logo"
+      /></mat-card-title>
+    </mat-card-header>
+    <form
+      class="public-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="handleSignUp(registerForm.value)"
+    >
+      <mat-card-content>
+        <mat-form-field class="public-form-full-width">
+          <input
+            matInput
+            placeholder="Nombres"
+            formControlName="firstName"
+            name="firstName"
+          />
+        </mat-form-field>
+        <div *ngIf="registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)">
+          <span *ngIf="registerForm.controls['firstName'].hasError('required')" class="error">
+            {{ validacionesMensaje.firstName[0].message }}
+          </span>
+        </div>
+        <mat-form-field class="public-form-full-width">
+          <input
+            matInput
+            placeholder="Apellidos"
+            formControlName="lastName"
+            name="lastName"
+          />
+        </mat-form-field>
+        <div *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)">
+          <span *ngIf="registerForm.controls['lastName'].hasError('required')" class="error">
+            {{ validacionesMensaje.lastName[0].message }}
+          </span>
+        </div>
+        <mat-form-field class="public-form-full-width">
+          <input
+            matInput
+            placeholder="Correo Electrónico"
+            formControlName="email"
+            name="email"
+          />
+        </mat-form-field>
+        <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+          <span *ngIf="registerForm.controls['email'].hasError('required')" class="error">
+            {{ validacionesMensaje.email[0].message }}
+          </span>
+          <span *ngIf="registerForm.controls['email'].hasError('pattern')" class="error">
+            {{ validacionesMensaje.email[1].message }}
+          </span>
+        </div>
+        <mat-form-field class="public-form-full-width">
+          <input
+            matInput
+            type="password"
+            placeholder="Contraseña"
+            formControlName="password"
+            name="password"
+          />
+        </mat-form-field>
+        <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+          <span *ngIf="registerForm.controls['password'].hasError('required')" class="error">
+            {{ validacionesMensaje.password[0].message }}
+          </span>
+          <span *ngIf="registerForm.controls['password'].hasError('minlength')" class="error">
+            {{ validacionesMensaje.password[0].message }}
+          </span>
+        </div>
+      </mat-card-content>
+      <mat-card-content>
+        <button
+          mat-raised-button
+          color="primary"
+          class="btn-block"
+          [disabled]="!registerForm.valid"
+        >
+          <mat-icon>login</mat-icon> Registrar
+        </button>
+      </mat-card-content>
+    </form>
+    <mat-card-content>
+      <a mat-raised-button color="basic" class="btn-block" routerLink="/login">
+        <mat-icon>arrow_back_ios</mat-icon> Regresar
+      </a>
+    </mat-card-content>
+  </mat-card>
+</div>
+<ng-template #templateModal>
+  <h2 mat-dialog-title>Aviso</h2>
+  <mat-dialog-content>
+    <mat-label>{{ message }}</mat-label>
+  </mat-dialog-content>
+  <mat-dialog-actions style="margin-top: 15px; justify-content: right">
+    <button mat-raised-button class="mat-primary" mat-dialog-close>Ok</button>
+  </mat-dialog-actions>
+</ng-template>

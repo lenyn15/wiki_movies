@@ -1,0 +1,30 @@
+<mat-grid-list cols="5" rowHeight="250px">
+  <mat-grid-tile colspan="1" rowspan="3" style="background: white">
+    <img alt="Poster de pelicula" mat-card-image src="{{ 'https://image.tmdb.org/t/p/w500/' + movie?.poster_path }}" />
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4" rowspan="3" style="background: white">
+    <mat-card style="background: white" class="mat-elevation-z0">
+      <mat-card-subtitle>{{ movie?.release_date }}</mat-card-subtitle>
+      <mat-card-title>{{ movie?.title }}</mat-card-title>
+      <mat-card-content>
+        <p>
+          {{ movie?.overview }}
+        </p>
+      </mat-card-content>
+      <mat-card-subtitle>Reparto</mat-card-subtitle>
+      <div class="reparto">
+        <figure *ngFor="let actor of reparto">
+          <img class="avatar-cast" mat-card-avatar src="{{ 'https://image.tmdb.org/t/p/w500/' + actor?.profile_path }}"
+            alt="{{ actor?.original_name }}" />
+          <figcaption>{{ actor?.original_name }}</figcaption>
+        </figure>
+      </div>
+      <br /><br />
+      <mat-card-actions>
+        <a mat-button routerLink="/">
+          <mat-icon>arrow_back_ios</mat-icon> Regresar
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
